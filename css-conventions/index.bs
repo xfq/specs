@@ -54,34 +54,54 @@ Inherited: whether the property is inherited
 Percentages: how percentage values are interpreted
 Media: which media groups the property applies to
 Computed value: how to compute the computed value
-Canonical order: TBD
+Canonical order: the order of serializing components of shorthand properties
 Animation type: TBD
 </pre>
 
 Value {#value}
 --------------
 
+This part specifies the set of valid values for the property whose name is
+'property-name'.
+
+Issue: TODO: link to css3-values (and css-syntax-3?)
+
 Initial {#initial}
 ------------------
+
+TBD
 
 Applies to {#applies-to}
 ------------------------
 
+TBD
+
 Inherited {#inherited}
 ----------------------
+
+TBD
 
 Percentages {#percentages}
 --------------------------
 
+TBD
+
 Media {#media}
 --------------
+
+TBD
 
 Computed value {#computed-value}
 --------------------------------
 
+TBD
+
 Canonical order {#canonical-order}
 ----------------------------------
+
+TBD
 
 Animation type {#animation-type}
 --------------------------------
 
+Issue: "Animatable" vs "Animation type"? See https://github.com/w3c/csswg-drafts/issues/72
