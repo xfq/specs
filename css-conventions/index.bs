@@ -92,17 +92,22 @@ Issue: TODO: link to css-cascade?
 Percentages {#percentages}
 --------------------------
 
-TBD
+This part indicates how percentages should be interpreted, if they occur in
+the value of the property. If "N/A" appears here, it means that the
+property does not accept percentages in its values.
 
 Media {#media}
 --------------
 
-TBD
+This part indicates the <a href="https://www.w3.org/TR/CSS2/media.html#media-groups">media groups</a>
+to which the property applies. Information about media groups is non-normative.
 
 Computed value {#computed-value}
 --------------------------------
 
-TBD
+This part describes the computed value for the property.
+
+Issue: TODO: link to css-cascade
 
 Canonical order {#canonical-order}
 ----------------------------------
