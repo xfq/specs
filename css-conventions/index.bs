@@ -69,17 +69,25 @@ Issue: TODO: link to css3-values (and css-syntax-3?)
 Initial {#initial}
 ------------------
 
-TBD
+This part specifies the property's initial value.
+
+Issue: TODO: link to css-cascade?
 
 Applies to {#applies-to}
 ------------------------
 
-TBD
+This part lists the elements to which the property applies. All elements are
+considered to have all properties, but some properties have no rendering effect
+on some types of elements. For example, the 'clear' property only affects
+block-level elements.
 
 Inherited {#inherited}
 ----------------------
 
-TBD
+This part indicates whether the value of the property is inherited
+from an ancestor element.
+
+Issue: TODO: link to css-cascade?
 
 Percentages {#percentages}
 --------------------------

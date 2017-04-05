@@ -264,6 +264,7 @@ on screen, on paper, in speech, etc.
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
      <ol class="toc">
       <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
+      <li><a href="#index-defined-elsewhere"><span class="secno"></span> <span class="content">Terms defined by reference</span></a>
      </ol>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
@@ -383,11 +384,17 @@ on screen, on paper, in speech, etc.
    <p>This part specifies the set of valid values for the property whose name is <a class="property" data-link-type="propdesc" href="#propdef-property-name" id="ref-for-propdef-property-name-1">property-name</a>.</p>
    <p class="issue" id="issue-3a64ae43"><a class="self-link" href="#issue-3a64ae43"></a> TODO: link to css3-values (and css-syntax-3?)</p>
    <h3 class="heading settled" data-level="3.2" id="initial"><span class="secno">3.2. </span><span class="content">Initial</span><a class="self-link" href="#initial"></a></h3>
-   <p>TBD</p>
+   <p>This part specifies the property’s initial value.</p>
+   <p class="issue" id="issue-5c508cc9"><a class="self-link" href="#issue-5c508cc9"></a> TODO: link to css-cascade?</p>
    <h3 class="heading settled" data-level="3.3" id="applies-to"><span class="secno">3.3. </span><span class="content">Applies to</span><a class="self-link" href="#applies-to"></a></h3>
-   <p>TBD</p>
+   <p>This part lists the elements to which the property applies. All elements are
+considered to have all properties, but some properties have no rendering effect
+on some types of elements. For example, the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css2/visuren.html#propdef-clear">clear</a> property only affects
+block-level elements.</p>
    <h3 class="heading settled" data-level="3.4" id="inherited"><span class="secno">3.4. </span><span class="content">Inherited</span><a class="self-link" href="#inherited"></a></h3>
-   <p>TBD</p>
+   <p>This part indicates whether the value of the property is inherited
+from an ancestor element.</p>
+   <p class="issue" id="issue-5c508cc90"><a class="self-link" href="#issue-5c508cc90"></a> TODO: link to css-cascade?</p>
    <h3 class="heading settled" data-level="3.5" id="percentages"><span class="secno">3.5. </span><span class="content">Percentages</span><a class="self-link" href="#percentages"></a></h3>
    <p>TBD</p>
    <h3 class="heading settled" data-level="3.6" id="media"><span class="secno">3.6. </span><span class="content">Media</span><a class="self-link" href="#media"></a></h3>
@@ -494,9 +501,19 @@ on screen, on paper, in speech, etc.
    <li><a href="#propdef-property-name">property-name</a><span>, in §3</span>
    <li><a href="#this">this</a><span>, in §2</span>
   </ul>
+  <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
+  <ul class="index">
+   <li>
+    <a data-link-type="biblio">[CSS22]</a> defines the following terms:
+    <ul>
+     <li><a href="https://drafts.csswg.org/css2/visuren.html#propdef-clear">clear</a>
+    </ul>
+  </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
+   <dt id="biblio-css22">[CSS22]
+   <dd>Bert Bos. <a href="https://www.w3.org/TR/CSS22/">Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification</a>. URL: <a href="https://www.w3.org/TR/CSS22/">https://www.w3.org/TR/CSS22/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
   </dl>
@@ -534,6 +551,8 @@ on screen, on paper, in speech, etc.
    <div class="issue"> This is an issue.<a href="#issue-05237a4c"> ↵ </a></div>
    <div class="issue"> Maybe I should remove this chapter, since there’s already a "Document conventions" section below...<a href="#issue-9479202b"> ↵ </a></div>
    <div class="issue"> TODO: link to css3-values (and css-syntax-3?)<a href="#issue-3a64ae43"> ↵ </a></div>
+   <div class="issue"> TODO: link to css-cascade?<a href="#issue-5c508cc9"> ↵ </a></div>
+   <div class="issue"> TODO: link to css-cascade?<a href="#issue-5c508cc90"> ↵ </a></div>
    <div class="issue"> "Animatable" vs "Animation type"? See https://github.com/w3c/csswg-drafts/issues/72<a href="#issue-a26e0fd5"> ↵ </a></div>
   </div>
   <aside class="dfn-panel" data-for="propdef-property-name">
