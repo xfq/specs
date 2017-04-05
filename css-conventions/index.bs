@@ -1,0 +1,87 @@
+<pre class='metadata'>
+Title: CSS Specification Conventions
+Shortname: css-conventions
+Level: 1
+Group: CSSWG
+Status: UD
+Work Status: exploring
+URL: https://xfq.github.io/specs/css-conventions/
+Editor: Fuqiao Xue
+Abstract: This document defines the notational conventions that are used in CSS specifications.
+</pre>
+
+<!--<pre class=link-defaults>
+</pre>-->
+
+Introduction {#intro}
+=====================
+
+TBD
+
+Typographic conventions {#typographic-conventions}
+==================================================
+
+The definition of a term is marked up like <dfn noexport>this</dfn>.
+
+Note: This is a note.
+
+<div class="example">
+		This is an example.
+</div>
+
+Issue: This is an issue.
+
+<pre class='railroad'>
+T: /*
+ZeroOrMore:
+	N: This is a railroad program
+T: */
+</pre>
+
+Issue: Maybe I should remove this chapter, since there's already a "Document conventions" section below...
+
+CSS property definition conventions {#property-definition-conventions}
+======================================================================
+
+Each CSS property definition begins with a summary of key information that resembles the following:
+
+<pre class='propdef'>
+Name: property-name
+Value: legal values &amp; syntax
+Initial: initial value
+Applies to: elements this property applies to
+Inherited: whether the property is inherited
+Percentages: how percentage values are interpreted
+Media: which media groups the property applies to
+Computed value: how to compute the computed value
+Canonical order: TBD
+Animation type: TBD
+</pre>
+
+Value {#value}
+--------------
+
+Initial {#initial}
+------------------
+
+Applies to {#applies-to}
+------------------------
+
+Inherited {#inherited}
+----------------------
+
+Percentages {#percentages}
+--------------------------
+
+Media {#media}
+--------------
+
+Computed value {#computed-value}
+--------------------------------
+
+Canonical order {#canonical-order}
+----------------------------------
+
+Animation type {#animation-type}
+--------------------------------
+

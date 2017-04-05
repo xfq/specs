@@ -1,0 +1,489 @@
+<!doctype html><html lang="en">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <title>CSS Specification Conventions</title>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="exploring" name="csswg-work-status">
+  <meta content="UD" name="w3c-status">
+  <meta content="This document defines the notational conventions that are used in CSS specifications." name="abstract">
+  <link href="../default.css" rel="stylesheet" type="text/css">
+  <link href="../csslogo.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-UD" rel="stylesheet" type="text/css">
+  <meta content="Bikeshed version 588c13f032a881310dc4886e2269c4ffd3b6784b" name="generator">
+  <link href="https://xfq.github.io/specs/css-conventions/" rel="canonical">
+<style>/* style-md-lists */
+
+            /* This is a weird hack for me not yet following the commonmark spec
+               regarding paragraph and lists. */
+            [data-md] > :first-child {
+                margin-top: 0;
+            }
+            [data-md] > :last-child {
+                margin-bottom: 0;
+            }</style>
+<style>/* style-counters */
+
+            body {
+                counter-reset: example figure issue;
+            }
+            .issue {
+                counter-increment: issue;
+            }
+            .issue:not(.no-marker)::before {
+                content: "Issue " counter(issue);
+            }
+
+            .example {
+                counter-increment: example;
+            }
+            .example:not(.no-marker)::before {
+                content: "Example " counter(example);
+            }
+            .invalid.example:not(.no-marker)::before,
+            .illegal.example:not(.no-marker)::before {
+                content: "Invalid Example" counter(example);
+            }
+
+            figcaption {
+                counter-increment: figure;
+            }
+            figcaption:not(.no-marker)::before {
+                content: "Figure " counter(figure) " ";
+            }</style>
+<style>/* style-railroad */
+svg.railroad-diagram{background-color:hsl(30,20%,95%);}svg.railroad-diagram path{stroke-width:3;stroke:black;fill:rgba(0,0,0,0);}svg.railroad-diagram text{font:bold 14px monospace;text-anchor:middle;}svg.railroad-diagram text.label{text-anchor:start;}svg.railroad-diagram text.comment{font:italic 12px monospace;}svg.railroad-diagram rect{stroke-width:3;stroke:black;fill:hsl(120,100%,90%);}</style>
+<style>/* style-selflinks */
+
+            .heading, .issue, .note, .example, li, dt {
+                position: relative;
+            }
+            a.self-link {
+                position: absolute;
+                top: 0;
+                left: calc(-1 * (3.5rem - 26px));
+                width: calc(3.5rem - 26px);
+                height: 2em;
+                text-align: center;
+                border: none;
+                transition: opacity .2s;
+                opacity: .5;
+            }
+            a.self-link:hover {
+                opacity: 1;
+            }
+            .heading > a.self-link {
+                font-size: 83%;
+            }
+            li > a.self-link {
+                left: calc(-1 * (3.5rem - 26px) - 2em);
+            }
+            dfn > a.self-link {
+                top: auto;
+                left: auto;
+                opacity: 0;
+                width: 1.5em;
+                height: 1.5em;
+                background: gray;
+                color: white;
+                font-style: normal;
+                transition: opacity .2s, background-color .2s, color .2s;
+            }
+            dfn:hover > a.self-link {
+                opacity: 1;
+            }
+            dfn > a.self-link:hover {
+                color: black;
+            }
+
+            a.self-link::before            { content: "¶"; }
+            .heading > a.self-link::before { content: "§"; }
+            dfn > a.self-link::before      { content: "#"; }</style>
+<style>/* style-autolinks */
+
+            .css.css, .property.property, .descriptor.descriptor {
+                color: #005a9c;
+                font-size: inherit;
+                font-family: inherit;
+            }
+            .css::before, .property::before, .descriptor::before {
+                content: "‘";
+            }
+            .css::after, .property::after, .descriptor::after {
+                content: "’";
+            }
+            .property, .descriptor {
+                /* Don't wrap property and descriptor names */
+                white-space: nowrap;
+            }
+            .type { /* CSS value <type> */
+                font-style: italic;
+            }
+            pre .property::before, pre .property::after {
+                content: "";
+            }
+            [data-link-type="property"]::before,
+            [data-link-type="propdesc"]::before,
+            [data-link-type="descriptor"]::before,
+            [data-link-type="value"]::before,
+            [data-link-type="function"]::before,
+            [data-link-type="at-rule"]::before,
+            [data-link-type="selector"]::before,
+            [data-link-type="maybe"]::before {
+                content: "‘";
+            }
+            [data-link-type="property"]::after,
+            [data-link-type="propdesc"]::after,
+            [data-link-type="descriptor"]::after,
+            [data-link-type="value"]::after,
+            [data-link-type="function"]::after,
+            [data-link-type="at-rule"]::after,
+            [data-link-type="selector"]::after,
+            [data-link-type="maybe"]::after {
+                content: "’";
+            }
+
+            [data-link-type].production::before,
+            [data-link-type].production::after,
+            .prod [data-link-type]::before,
+            .prod [data-link-type]::after {
+                content: "";
+            }
+
+            [data-link-type=element],
+            [data-link-type=element-attr] {
+                font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+                font-size: .9em;
+            }
+            [data-link-type=element]::before { content: "<" }
+            [data-link-type=element]::after  { content: ">" }
+
+            [data-link-type=biblio] {
+                white-space: pre;
+            }</style>
+ <body class="h-entry">
+  <div class="head">
+   <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
+   <h1 class="p-name no-ref" id="title">CSS Specification Conventions</h1>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Unofficial Proposal Draft, <time class="dt-updated" datetime="2017-04-05">5 April 2017</time></span></h2>
+   <div data-fill-with="spec-metadata">
+    <dl>
+     <dt>This version:
+     <dd><a class="u-url" href="https://xfq.github.io/specs/css-conventions/">https://xfq.github.io/specs/css-conventions/</a>
+     <dt>Issue Tracking:
+     <dd><a href="#issues-index">Inline In Spec</a>
+     <dd><span><a href="https://github.com/w3c/csswg-drafts/labels/css-conventions-1">GitHub Issues</a></span>
+     <dt class="editor">Editor:
+     <dd class="editor p-author h-card vcard"><span class="p-name fn">Fuqiao Xue</span>
+    </dl>
+   </div>
+   <div data-fill-with="warning"></div>
+   <p class="copyright" data-fill-with="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2017 <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>). W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply. </p>
+   <hr title="Separator for header">
+  </div>
+  <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
+  <div class="p-summary" data-fill-with="abstract">
+   <p>This document defines the notational conventions that are used in CSS specifications.</p>
+    <a href="http://www.w3.org/TR/CSS/">CSS</a> is a language for describing the rendering of structured documents 
+(such as HTML and XML) 
+on screen, on paper, in speech, etc.
+  </div>
+  <h2 class="no-num no-toc no-ref heading settled" id="status"><span class="content">Status of this document</span></h2>
+  <div data-fill-with="status">
+   <p></p>
+  </div>
+  <div data-fill-with="at-risk"></div>
+  <nav data-fill-with="table-of-contents" id="toc">
+   <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
+   <ol class="toc" role="directory">
+    <li><a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
+    <li><a href="#typographic-conventions"><span class="secno">2</span> <span class="content">Typographic conventions</span></a>
+    <li>
+     <a href="#property-definition-conventions"><span class="secno">3</span> <span class="content">CSS property definition conventions</span></a>
+     <ol class="toc">
+      <li><a href="#value"><span class="secno">3.1</span> <span class="content">Value</span></a>
+      <li><a href="#initial"><span class="secno">3.2</span> <span class="content">Initial</span></a>
+      <li><a href="#applies-to"><span class="secno">3.3</span> <span class="content">Applies to</span></a>
+      <li><a href="#inherited"><span class="secno">3.4</span> <span class="content">Inherited</span></a>
+      <li><a href="#percentages"><span class="secno">3.5</span> <span class="content">Percentages</span></a>
+      <li><a href="#media"><span class="secno">3.6</span> <span class="content">Media</span></a>
+      <li><a href="#computed-value"><span class="secno">3.7</span> <span class="content">Computed value</span></a>
+      <li><a href="#canonical-order"><span class="secno">3.8</span> <span class="content">Canonical order</span></a>
+      <li><a href="#animation-type"><span class="secno">3.9</span> <span class="content">Animation type</span></a>
+     </ol>
+    <li>
+     <a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
+     <ol class="toc">
+      <li><a href="#document-conventions"><span class="secno"></span> <span class="content"> Document conventions</span></a>
+      <li><a href="#conform-classes"><span class="secno"></span> <span class="content"> Conformance classes</span></a>
+      <li>
+       <a href="#conform-responsible"><span class="secno"></span> <span class="content"> Requirements for Responsible Implementation of CSS</span></a>
+       <ol class="toc">
+        <li><a href="#conform-partial"><span class="secno"></span> <span class="content"> Partial Implementations</span></a>
+        <li><a href="#conform-future-proofing"><span class="secno"></span> <span class="content"> Implementations of Unstable and Proprietary Features</span></a>
+        <li><a href="#conform-testing"><span class="secno"></span> <span class="content"> Implementations of CR-level Features</span></a>
+       </ol>
+     </ol>
+    <li>
+     <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
+     <ol class="toc">
+      <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
+     </ol>
+    <li>
+     <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
+     <ol class="toc">
+      <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
+     </ol>
+    <li><a href="#property-index"><span class="secno"></span> <span class="content">Property Index</span></a>
+    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
+   </ol>
+  </nav>
+  <main>
+   <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
+   <p>TBD</p>
+   <h2 class="heading settled" data-level="2" id="typographic-conventions"><span class="secno">2. </span><span class="content">Typographic conventions</span><a class="self-link" href="#typographic-conventions"></a></h2>
+   <p>The definition of a term is marked up like <dfn data-dfn-type="dfn" data-noexport="" id="this">this<a class="self-link" href="#this"></a></dfn>.</p>
+   <p class="note" role="note"><span>Note:</span> This is a note.</p>
+   <div class="example" id="example-263fb1aa"><a class="self-link" href="#example-263fb1aa"></a> This is an example. </div>
+   <p class="issue" id="issue-05237a4c"><a class="self-link" href="#issue-05237a4c"></a> This is an issue.</p>
+   <div class="railroad">
+    <svg class="railroad-diagram" height="80" viewBox="0 0 480 80" width="480">
+     <g transform="translate(.5 .5)">
+      <path d="M 20 30 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
+      <path d="M40 40h10"></path>
+      <g class="terminal">
+       <path d="M50 40h0"></path>
+       <path d="M86 40h0"></path>
+       <rect height="22" rx="10" ry="10" width="36" x="50" y="29"></rect>
+       <a href="">
+        <text x="68" y="44">/*</text>
+        <text x="68" y="44">/*</text>
+       </a>
+      </g>
+      <path d="M86 40h10"></path>
+      <g>
+       <path d="M96 40h0"></path>
+       <path d="M384 40h0"></path>
+       <path d="M96 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
+       <g>
+        <path d="M116 20h248"></path>
+       </g>
+       <path d="M364 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
+       <path d="M96 40h20"></path>
+       <g>
+        <path d="M116 40h0"></path>
+        <path d="M364 40h0"></path>
+        <path d="M116 40h10"></path>
+        <g class="non-terminal">
+         <path d="M126 40h0"></path>
+         <path d="M354 40h0"></path>
+         <rect height="22" width="228" x="126" y="29"></rect>
+         <a href="">
+          <text x="240" y="44">This is a railroad program</text>
+          <text x="240" y="44">This is a railroad program</text>
+         </a>
+        </g>
+        <path d="M354 40h10"></path>
+        <path d="M126 40a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path>
+        <g>
+         <path d="M126 60h228"></path>
+        </g>
+        <path d="M354 60a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10"></path>
+       </g>
+       <path d="M364 40h20"></path>
+      </g>
+      <path d="M384 40h10"></path>
+      <g class="terminal">
+       <path d="M394 40h0"></path>
+       <path d="M430 40h0"></path>
+       <rect height="22" rx="10" ry="10" width="36" x="394" y="29"></rect>
+       <a href="">
+        <text x="412" y="44">*/</text>
+        <text x="412" y="44">*/</text>
+       </a>
+      </g>
+      <path d="M430 40h10"></path>
+      <path d="M 440 40 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+     </g>
+    </svg>
+   </div>
+   <p class="issue" id="issue-9479202b"><a class="self-link" href="#issue-9479202b"></a> Maybe I should remove this chapter, since there’s already a "Document conventions" section below...</p>
+   <h2 class="heading settled" data-level="3" id="property-definition-conventions"><span class="secno">3. </span><span class="content">CSS property definition conventions</span><a class="self-link" href="#property-definition-conventions"></a></h2>
+   <p>Each CSS property definition begins with a summary of key information that resembles the following:</p>
+   <table class="def propdef" data-link-for-hint="property-name">
+    <tbody>
+     <tr>
+      <th>Name:
+      <td><dfn class="css" data-dfn-type="property" data-export="" id="propdef-property-name">property-name<a class="self-link" href="#propdef-property-name"></a></dfn>
+     <tr class="value">
+      <th>Value:
+      <td class="prod">legal values &amp; syntax
+     <tr>
+      <th>Initial:
+      <td>initial value
+     <tr>
+      <th>Applies to:
+      <td>elements this property applies to
+     <tr>
+      <th>Inherited:
+      <td>whether the property is inherited
+     <tr>
+      <th>Percentages:
+      <td>how percentage values are interpreted
+     <tr>
+      <th>Media:
+      <td>which media groups the property applies to
+     <tr>
+      <th>Computed value:
+      <td>how to compute the computed value
+     <tr>
+      <th>Canonical order:
+      <td>TBD
+     <tr>
+      <th>Animation type:
+      <td>TBD
+   </table>
+   <h3 class="heading settled" data-level="3.1" id="value"><span class="secno">3.1. </span><span class="content">Value</span><a class="self-link" href="#value"></a></h3>
+   <h3 class="heading settled" data-level="3.2" id="initial"><span class="secno">3.2. </span><span class="content">Initial</span><a class="self-link" href="#initial"></a></h3>
+   <h3 class="heading settled" data-level="3.3" id="applies-to"><span class="secno">3.3. </span><span class="content">Applies to</span><a class="self-link" href="#applies-to"></a></h3>
+   <h3 class="heading settled" data-level="3.4" id="inherited"><span class="secno">3.4. </span><span class="content">Inherited</span><a class="self-link" href="#inherited"></a></h3>
+   <h3 class="heading settled" data-level="3.5" id="percentages"><span class="secno">3.5. </span><span class="content">Percentages</span><a class="self-link" href="#percentages"></a></h3>
+   <h3 class="heading settled" data-level="3.6" id="media"><span class="secno">3.6. </span><span class="content">Media</span><a class="self-link" href="#media"></a></h3>
+   <h3 class="heading settled" data-level="3.7" id="computed-value"><span class="secno">3.7. </span><span class="content">Computed value</span><a class="self-link" href="#computed-value"></a></h3>
+   <h3 class="heading settled" data-level="3.8" id="canonical-order"><span class="secno">3.8. </span><span class="content">Canonical order</span><a class="self-link" href="#canonical-order"></a></h3>
+   <h3 class="heading settled" data-level="3.9" id="animation-type"><span class="secno">3.9. </span><span class="content">Animation type</span><a class="self-link" href="#animation-type"></a></h3>
+  </main>
+  <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
+  <h3 class="heading settled" id="document-conventions"><span class="content"> Document conventions</span><a class="self-link" href="#document-conventions"></a></h3>
+  <p>Conformance requirements are expressed with a combination of
+	descriptive assertions and RFC 2119 terminology. The key words “MUST”,
+	“MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”,
+	“RECOMMENDED”, “MAY”, and “OPTIONAL” in the normative parts of this
+	document are to be interpreted as described in RFC 2119.
+	However, for readability, these words do not appear in all uppercase
+	letters in this specification. </p>
+  <p>All of the text of this specification is normative except sections
+	explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a> </p>
+  <p>Examples in this specification are introduced with the words “for example”
+	or are set apart from the normative text with <code>class="example"</code>,
+	like this: </p>
+  <div class="example" id="example-52448c84">
+   <a class="self-link" href="#example-52448c84"></a> 
+   <p>This is an example of an informative example. </p>
+  </div>
+  <p>Informative notes begin with the word “Note” and are set apart from the
+	normative text with <code>class="note"</code>, like this: </p>
+  <p class="note" role="note">Note, this is an informative note. </p>
+  <p>Advisements are normative sections styled to evoke special attention and are
+	set apart from other normative text with <code>&lt;strong class="advisement"></code>, like
+	this: <strong class="advisement"> UAs MUST provide an accessible alternative. </strong> </p>
+  <h3 class="heading settled" id="conform-classes"><span class="content"> Conformance classes</span><a class="self-link" href="#conform-classes"></a></h3>
+  <p>Conformance to this specification
+	is defined for three conformance classes: </p>
+  <dl>
+   <dt>style sheet 
+   <dd>A <a href="http://www.w3.org/TR/CSS2/conform.html#style-sheet">CSS
+			style sheet</a>. 
+   <dt>renderer 
+   <dd>A <a href="http://www.w3.org/TR/CSS2/conform.html#user-agent">UA</a> that interprets the semantics of a style sheet and renders
+			documents that use them. 
+   <dt>authoring tool 
+   <dd>A <a href="http://www.w3.org/TR/CSS2/conform.html#user-agent">UA</a> that writes a style sheet. 
+  </dl>
+  <p>A style sheet is conformant to this specification
+	if all of its statements that use syntax defined in this module are valid
+	according to the generic CSS grammar and the individual grammars of each
+	feature defined in this module. </p>
+  <p>A renderer is conformant to this specification
+	if, in addition to interpreting the style sheet as defined by the
+	appropriate specifications, it supports all the features defined
+	by this specification by parsing them correctly
+	and rendering the document accordingly. However, the inability of a
+	UA to correctly render a document due to limitations of the device
+	does not make the UA non-conformant. (For example, a UA is not
+	required to render color on a monochrome monitor.) </p>
+  <p>An authoring tool is conformant to this specification
+	if it writes style sheets that are syntactically correct according to the
+	generic CSS grammar and the individual grammars of each feature in
+	this module, and meet all other conformance requirements of style sheets
+	as described in this module. </p>
+  <h3 class="heading settled" id="conform-responsible"><span class="content"> Requirements for Responsible Implementation of CSS</span><a class="self-link" href="#conform-responsible"></a></h3>
+  <p>The following sections define several conformance requirements
+		for implementing CSS responsibly,
+		in a way that promotes interoperability in the present and future. </p>
+  <h4 class="heading settled" id="conform-partial"><span class="content"> Partial Implementations</span><a class="self-link" href="#conform-partial"></a></h4>
+  <p>So that authors can exploit the forward-compatible parsing rules to assign fallback values, <strong>CSS renderers <em>must</em> treat as invalid
+		(and <a href="http://www.w3.org/TR/CSS2/conform.html#ignore">ignore as appropriate</a>)
+		any at-rules, properties, property values, keywords, and other syntactic constructs
+		for which they have no usable level of support</strong>.
+		In particular, user agents <em>must not</em> selectively ignore
+		unsupported property values and honor supported values in a single multi-value property declaration:
+		if any value is considered invalid (as unsupported values must be),
+		CSS requires that the entire declaration be ignored. </p>
+  <h4 class="heading settled" id="conform-future-proofing"><span class="content"> Implementations of Unstable and Proprietary Features</span><a class="self-link" href="#conform-future-proofing"></a></h4>
+  <p>To avoid clashes with future stable CSS features,
+		the CSSWG recommends <a href="http://www.w3.org/TR/CSS/#future-proofing">following best practices</a> for the implementation of <a href="http://www.w3.org/TR/CSS/#unstable">unstable</a> features and <a href="http://www.w3.org/TR/CSS/#proprietary-extension">proprietary extensions</a> to CSS. </p>
+  <h4 class="heading settled" id="conform-testing"><span class="content"> Implementations of CR-level Features</span><a class="self-link" href="#conform-testing"></a></h4>
+  <p>Once a specification reaches the Candidate Recommendation stage,
+		implementers should release an <a data-link-type="dfn" href="http://www.w3.org/TR/CSS/#vendor-prefix">unprefixed</a> implementation
+		of any CR-level feature they can demonstrate
+		to be correctly implemented according to spec,
+		and should avoid exposing a prefixed variant of that feature. </p>
+  <p>To establish and maintain the interoperability of CSS across
+		implementations, the CSS Working Group requests that non-experimental
+		CSS renderers submit an implementation report (and, if necessary, the
+		testcases used for that implementation report) to the W3C before
+		releasing an unprefixed implementation of any CSS features. Testcases
+		submitted to W3C are subject to review and correction by the CSS
+		Working Group. </p>
+  <p>
+   Further information on submitting testcases and implementation reports
+		can be found from on the CSS Working Group’s website at <a href="http://www.w3.org/Style/CSS/Test/">http://www.w3.org/Style/CSS/Test/</a>.
+		Questions should be directed to the <a href="http://lists.w3.org/Archives/Public/public-css-testsuite">public-css-testsuite@w3.org</a> mailing list. 
+<script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script>
+  </p>
+  <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
+  <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
+  <ul class="index">
+   <li><a href="#propdef-property-name">property-name</a><span>, in §3</span>
+   <li><a href="#this">this</a><span>, in §2</span>
+  </ul>
+  <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
+  <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
+  <dl>
+   <dt id="biblio-rfc2119">[RFC2119]
+   <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+  </dl>
+  <h2 class="no-num no-ref heading settled" id="property-index"><span class="content">Property Index</span><a class="self-link" href="#property-index"></a></h2>
+  <div class="big-element-wrapper">
+   <table class="index">
+    <thead>
+     <tr>
+      <th scope="col">Name
+      <th scope="col">Value
+      <th scope="col">Initial
+      <th scope="col">Applies to
+      <th scope="col">Inh.
+      <th scope="col">%ages
+      <th scope="col">Media
+      <th scope="col">Anim­ation type
+      <th scope="col">Canonical order
+      <th scope="col">Com­puted value
+    <tbody>
+     <tr>
+      <th scope="row"><a class="css" data-link-type="property" href="#propdef-property-name">property-name</a>
+      <td>legal values &amp; syntax
+      <td>initial value
+      <td>elements this property applies to
+      <td>whether the property is inherited
+      <td>how percentage values are interpreted
+      <td>which media groups the property applies to
+      <td>TBD
+      <td>TBD
+      <td>how to compute the computed value
+   </table>
+  </div>
+  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
+  <div style="counter-reset:issue">
+   <div class="issue"> This is an issue.<a href="#issue-05237a4c"> ↵ </a></div>
+   <div class="issue"> Maybe I should remove this chapter, since there’s already a "Document conventions" section below...<a href="#issue-9479202b"> ↵ </a></div>
+  </div>
