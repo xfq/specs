@@ -62,9 +62,7 @@ Inherited {#inherited}
 ----------------------
 
 This part indicates whether the value of the property is inherited
-from an ancestor element.
-
-Issue: TODO: link to css-cascade?
+from an ancestor element. [[!CSS-CASCADE-4]]
 
 Percentages {#percentages}
 --------------------------
@@ -82,9 +80,7 @@ to which the property applies. Information about media groups is non-normative.
 Computed value {#computed-value}
 --------------------------------
 
-This part describes the computed value for the property.
-
-Issue: TODO: link to css-cascade
+This part describes the computed value for the property. [[!CSS-CASCADE-4]]
 
 Canonical order {#canonical-order}
 ----------------------------------
