@@ -16,6 +16,10 @@ Abstract: This document defines the notational conventions that are used in CSS 
 Introduction {#intro}
 =====================
 
+<!--This specification replaces the
+<a href="https://www.w3.org/TR/CSS21/about.html#property-defs">CSS property definition conventions</a>
+from [[!CSS21]].-->
+
 TBD
 
 Property definition conventions {#property-definition-conventions}
