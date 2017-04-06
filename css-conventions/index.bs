@@ -48,9 +48,7 @@ Issue: TODO: link to css-syntax-3?
 Initial {#initial}
 ------------------
 
-This part specifies the property's initial value.
-
-Issue: TODO: link to css-cascade?
+This part specifies the property's <a>initial value</a>. [[!CSS-CASCADE-4]]
 
 Applies to {#applies-to}
 ------------------------
