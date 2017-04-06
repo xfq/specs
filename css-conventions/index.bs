@@ -62,9 +62,10 @@ Value {#value}
 --------------
 
 This part specifies the set of valid values for the property whose name is
-'property-name'.
+'property-name'. See [[!CSS3VAL]] for information about the
+<a href="https://www.w3.org/TR/css3-values/#value-defs">value definition syntax</a>.
 
-Issue: TODO: link to css3-values (and css-syntax-3?)
+Issue: TODO: link to css-syntax-3?
 
 Initial {#initial}
 ------------------
