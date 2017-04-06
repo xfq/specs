@@ -21,6 +21,72 @@
             [data-md] > :last-child {
                 margin-bottom: 0;
             }</style>
+<style>/* style-counters */
+
+            body {
+                counter-reset: example figure issue;
+            }
+            .issue {
+                counter-increment: issue;
+            }
+            .issue:not(.no-marker)::before {
+                content: "Issue " counter(issue);
+            }
+
+            .example {
+                counter-increment: example;
+            }
+            .example:not(.no-marker)::before {
+                content: "Example " counter(example);
+            }
+            .invalid.example:not(.no-marker)::before,
+            .illegal.example:not(.no-marker)::before {
+                content: "Invalid Example" counter(example);
+            }
+
+            figcaption {
+                counter-increment: figure;
+            }
+            figcaption:not(.no-marker)::before {
+                content: "Figure " counter(figure) " ";
+            }</style>
+<style>/* style-dfn-panel */
+
+        .dfn-panel {
+            position: absolute;
+            z-index: 35;
+            height: auto;
+            width: -webkit-fit-content;
+            width: fit-content;
+            max-width: 300px;
+            max-height: 500px;
+            overflow: auto;
+            padding: 0.5em 0.75em;
+            font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+            background: #DDDDDD;
+            color: black;
+            border: outset 0.2em;
+        }
+        .dfn-panel:not(.on) { display: none; }
+        .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+        .dfn-panel > b { display: block; }
+        .dfn-panel a { color: black; }
+        .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+        .dfn-panel > b + b { margin-top: 0.25em; }
+        .dfn-panel ul { padding: 0; }
+        .dfn-panel li { list-style: inside; }
+        .dfn-panel.activated {
+            display: inline-block;
+            position: fixed;
+            left: .5em;
+            bottom: 2em;
+            margin: 0 auto;
+            max-width: calc(100vw - 1.5em - .4em - .5em);
+            max-height: 30vh;
+        }
+
+        .dfn-paneled { cursor: pointer; }
+        </style>
 <style>/* style-selflinks */
 
             .heading, .issue, .note, .example, li, dt {
@@ -67,35 +133,6 @@
             a.self-link::before            { content: "¶"; }
             .heading > a.self-link::before { content: "§"; }
             dfn > a.self-link::before      { content: "#"; }</style>
-<style>/* style-counters */
-
-            body {
-                counter-reset: example figure issue;
-            }
-            .issue {
-                counter-increment: issue;
-            }
-            .issue:not(.no-marker)::before {
-                content: "Issue " counter(issue);
-            }
-
-            .example {
-                counter-increment: example;
-            }
-            .example:not(.no-marker)::before {
-                content: "Example " counter(example);
-            }
-            .invalid.example:not(.no-marker)::before,
-            .illegal.example:not(.no-marker)::before {
-                content: "Invalid Example" counter(example);
-            }
-
-            figcaption {
-                counter-increment: figure;
-            }
-            figcaption:not(.no-marker)::before {
-                content: "Figure " counter(figure) " ";
-            }</style>
 <style>/* style-autolinks */
 
             .css.css, .property.property, .descriptor.descriptor {
@@ -158,45 +195,6 @@
             [data-link-type=biblio] {
                 white-space: pre;
             }</style>
-<style>/* style-dfn-panel */
-
-        .dfn-panel {
-            position: absolute;
-            z-index: 35;
-            height: auto;
-            width: -webkit-fit-content;
-            width: fit-content;
-            max-width: 300px;
-            max-height: 500px;
-            overflow: auto;
-            padding: 0.5em 0.75em;
-            font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
-            background: #DDDDDD;
-            color: black;
-            border: outset 0.2em;
-        }
-        .dfn-panel:not(.on) { display: none; }
-        .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
-        .dfn-panel > b { display: block; }
-        .dfn-panel a { color: black; }
-        .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
-        .dfn-panel > b + b { margin-top: 0.25em; }
-        .dfn-panel ul { padding: 0; }
-        .dfn-panel li { list-style: inside; }
-        .dfn-panel.activated {
-            display: inline-block;
-            position: fixed;
-            left: .5em;
-            bottom: 2em;
-            margin: 0 auto;
-            max-width: calc(100vw - 1.5em - .4em - .5em);
-            max-height: 30vh;
-        }
-
-        .dfn-paneled { cursor: pointer; }
-        </style>
-<style>/* style-railroad */
-svg.railroad-diagram{background-color:hsl(30,20%,95%);}svg.railroad-diagram path{stroke-width:3;stroke:black;fill:rgba(0,0,0,0);}svg.railroad-diagram text{font:bold 14px monospace;text-anchor:middle;}svg.railroad-diagram text.label{text-anchor:start;}svg.railroad-diagram text.comment{font:italic 12px monospace;}svg.railroad-diagram rect{stroke-width:3;stroke:black;fill:hsl(120,100%,90%);}</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
@@ -233,19 +231,18 @@ on screen, on paper, in speech, etc.
    <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
    <ol class="toc" role="directory">
     <li><a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
-    <li><a href="#typographic-conventions"><span class="secno">2</span> <span class="content">Typographic conventions</span></a>
     <li>
-     <a href="#property-definition-conventions"><span class="secno">3</span> <span class="content">CSS property definition conventions</span></a>
+     <a href="#property-definition-conventions"><span class="secno">2</span> <span class="content">Property definition conventions</span></a>
      <ol class="toc">
-      <li><a href="#value"><span class="secno">3.1</span> <span class="content">Value</span></a>
-      <li><a href="#initial"><span class="secno">3.2</span> <span class="content">Initial</span></a>
-      <li><a href="#applies-to"><span class="secno">3.3</span> <span class="content">Applies to</span></a>
-      <li><a href="#inherited"><span class="secno">3.4</span> <span class="content">Inherited</span></a>
-      <li><a href="#percentages"><span class="secno">3.5</span> <span class="content">Percentages</span></a>
-      <li><a href="#media"><span class="secno">3.6</span> <span class="content">Media</span></a>
-      <li><a href="#computed-value"><span class="secno">3.7</span> <span class="content">Computed value</span></a>
-      <li><a href="#canonical-order"><span class="secno">3.8</span> <span class="content">Canonical order</span></a>
-      <li><a href="#animation-type"><span class="secno">3.9</span> <span class="content">Animation type</span></a>
+      <li><a href="#value"><span class="secno">2.1</span> <span class="content">Value</span></a>
+      <li><a href="#initial"><span class="secno">2.2</span> <span class="content">Initial</span></a>
+      <li><a href="#applies-to"><span class="secno">2.3</span> <span class="content">Applies to</span></a>
+      <li><a href="#inherited"><span class="secno">2.4</span> <span class="content">Inherited</span></a>
+      <li><a href="#percentages"><span class="secno">2.5</span> <span class="content">Percentages</span></a>
+      <li><a href="#media"><span class="secno">2.6</span> <span class="content">Media</span></a>
+      <li><a href="#computed-value"><span class="secno">2.7</span> <span class="content">Computed value</span></a>
+      <li><a href="#canonical-order"><span class="secno">2.8</span> <span class="content">Canonical order</span></a>
+      <li><a href="#animation-type"><span class="secno">2.9</span> <span class="content">Animation type</span></a>
      </ol>
     <li>
      <a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
@@ -278,74 +275,7 @@ on screen, on paper, in speech, etc.
   <main>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
    <p>TBD</p>
-   <h2 class="heading settled" data-level="2" id="typographic-conventions"><span class="secno">2. </span><span class="content">Typographic conventions</span><a class="self-link" href="#typographic-conventions"></a></h2>
-   <p>The definition of a term is marked up like <dfn data-dfn-type="dfn" data-noexport="" id="this">this<a class="self-link" href="#this"></a></dfn>.</p>
-   <p class="note" role="note"><span>Note:</span> This is a note.</p>
-   <div class="example" id="example-263fb1aa"><a class="self-link" href="#example-263fb1aa"></a> This is an example. </div>
-   <p class="issue" id="issue-05237a4c"><a class="self-link" href="#issue-05237a4c"></a> This is an issue.</p>
-   <div class="railroad">
-    <svg class="railroad-diagram" height="80" viewBox="0 0 480 80" width="480">
-     <g transform="translate(.5 .5)">
-      <path d="M 20 30 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
-      <path d="M40 40h10"></path>
-      <g class="terminal">
-       <path d="M50 40h0"></path>
-       <path d="M86 40h0"></path>
-       <rect height="22" rx="10" ry="10" width="36" x="50" y="29"></rect>
-       <a href="">
-        <text x="68" y="44">/*</text>
-        <text x="68" y="44">/*</text>
-       </a>
-      </g>
-      <path d="M86 40h10"></path>
-      <g>
-       <path d="M96 40h0"></path>
-       <path d="M384 40h0"></path>
-       <path d="M96 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-       <g>
-        <path d="M116 20h248"></path>
-       </g>
-       <path d="M364 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-       <path d="M96 40h20"></path>
-       <g>
-        <path d="M116 40h0"></path>
-        <path d="M364 40h0"></path>
-        <path d="M116 40h10"></path>
-        <g class="non-terminal">
-         <path d="M126 40h0"></path>
-         <path d="M354 40h0"></path>
-         <rect height="22" width="228" x="126" y="29"></rect>
-         <a href="">
-          <text x="240" y="44">This is a railroad program</text>
-          <text x="240" y="44">This is a railroad program</text>
-         </a>
-        </g>
-        <path d="M354 40h10"></path>
-        <path d="M126 40a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path>
-        <g>
-         <path d="M126 60h228"></path>
-        </g>
-        <path d="M354 60a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10"></path>
-       </g>
-       <path d="M364 40h20"></path>
-      </g>
-      <path d="M384 40h10"></path>
-      <g class="terminal">
-       <path d="M394 40h0"></path>
-       <path d="M430 40h0"></path>
-       <rect height="22" rx="10" ry="10" width="36" x="394" y="29"></rect>
-       <a href="">
-        <text x="412" y="44">*/</text>
-        <text x="412" y="44">*/</text>
-       </a>
-      </g>
-      <path d="M430 40h10"></path>
-      <path d="M 440 40 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
-     </g>
-    </svg>
-   </div>
-   <p class="issue" id="issue-9479202b"><a class="self-link" href="#issue-9479202b"></a> Maybe I should remove this chapter, since there’s already a "Document conventions" section below...</p>
-   <h2 class="heading settled" data-level="3" id="property-definition-conventions"><span class="secno">3. </span><span class="content">CSS property definition conventions</span><a class="self-link" href="#property-definition-conventions"></a></h2>
+   <h2 class="heading settled" data-level="2" id="property-definition-conventions"><span class="secno">2. </span><span class="content">Property definition conventions</span><a class="self-link" href="#property-definition-conventions"></a></h2>
    <p>Each CSS property definition begins with a summary of key information that resembles the following:</p>
    <table class="def propdef" data-link-for-hint="property-name">
     <tbody>
@@ -380,33 +310,33 @@ on screen, on paper, in speech, etc.
       <th>Animation type:
       <td>TBD
    </table>
-   <h3 class="heading settled" data-level="3.1" id="value"><span class="secno">3.1. </span><span class="content">Value</span><a class="self-link" href="#value"></a></h3>
+   <h3 class="heading settled" data-level="2.1" id="value"><span class="secno">2.1. </span><span class="content">Value</span><a class="self-link" href="#value"></a></h3>
    <p>This part specifies the set of valid values for the property whose name is <a class="property" data-link-type="propdesc" href="#propdef-property-name" id="ref-for-propdef-property-name-1">property-name</a>. See <a data-link-type="biblio" href="#biblio-css3val">[CSS3VAL]</a> for information about the <a href="https://www.w3.org/TR/css3-values/#value-defs">value definition syntax</a>.</p>
    <p class="issue" id="issue-d90332ab"><a class="self-link" href="#issue-d90332ab"></a> TODO: link to css-syntax-3?</p>
-   <h3 class="heading settled" data-level="3.2" id="initial"><span class="secno">3.2. </span><span class="content">Initial</span><a class="self-link" href="#initial"></a></h3>
+   <h3 class="heading settled" data-level="2.2" id="initial"><span class="secno">2.2. </span><span class="content">Initial</span><a class="self-link" href="#initial"></a></h3>
    <p>This part specifies the property’s initial value.</p>
    <p class="issue" id="issue-5c508cc9"><a class="self-link" href="#issue-5c508cc9"></a> TODO: link to css-cascade?</p>
-   <h3 class="heading settled" data-level="3.3" id="applies-to"><span class="secno">3.3. </span><span class="content">Applies to</span><a class="self-link" href="#applies-to"></a></h3>
+   <h3 class="heading settled" data-level="2.3" id="applies-to"><span class="secno">2.3. </span><span class="content">Applies to</span><a class="self-link" href="#applies-to"></a></h3>
    <p>This part lists the elements to which the property applies. All elements are
 considered to have all properties, but some properties have no rendering effect
 on some types of elements. For example, the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css2/visuren.html#propdef-clear">clear</a> property only affects
 block-level elements.</p>
-   <h3 class="heading settled" data-level="3.4" id="inherited"><span class="secno">3.4. </span><span class="content">Inherited</span><a class="self-link" href="#inherited"></a></h3>
+   <h3 class="heading settled" data-level="2.4" id="inherited"><span class="secno">2.4. </span><span class="content">Inherited</span><a class="self-link" href="#inherited"></a></h3>
    <p>This part indicates whether the value of the property is inherited
 from an ancestor element.</p>
    <p class="issue" id="issue-5c508cc90"><a class="self-link" href="#issue-5c508cc90"></a> TODO: link to css-cascade?</p>
-   <h3 class="heading settled" data-level="3.5" id="percentages"><span class="secno">3.5. </span><span class="content">Percentages</span><a class="self-link" href="#percentages"></a></h3>
+   <h3 class="heading settled" data-level="2.5" id="percentages"><span class="secno">2.5. </span><span class="content">Percentages</span><a class="self-link" href="#percentages"></a></h3>
    <p>This part indicates how percentages should be interpreted, if they occur in
 the value of the property. If "N/A" appears here, it means that the
 property does not accept percentages in its values.</p>
-   <h3 class="heading settled" data-level="3.6" id="media"><span class="secno">3.6. </span><span class="content">Media</span><a class="self-link" href="#media"></a></h3>
+   <h3 class="heading settled" data-level="2.6" id="media"><span class="secno">2.6. </span><span class="content">Media</span><a class="self-link" href="#media"></a></h3>
    <p>This part indicates the <a href="https://www.w3.org/TR/CSS2/media.html#media-groups">media groups</a> to which the property applies. Information about media groups is non-normative.</p>
-   <h3 class="heading settled" data-level="3.7" id="computed-value"><span class="secno">3.7. </span><span class="content">Computed value</span><a class="self-link" href="#computed-value"></a></h3>
+   <h3 class="heading settled" data-level="2.7" id="computed-value"><span class="secno">2.7. </span><span class="content">Computed value</span><a class="self-link" href="#computed-value"></a></h3>
    <p>This part describes the computed value for the property.</p>
    <p class="issue" id="issue-a7e0c8d8"><a class="self-link" href="#issue-a7e0c8d8"></a> TODO: link to css-cascade</p>
-   <h3 class="heading settled" data-level="3.8" id="canonical-order"><span class="secno">3.8. </span><span class="content">Canonical order</span><a class="self-link" href="#canonical-order"></a></h3>
+   <h3 class="heading settled" data-level="2.8" id="canonical-order"><span class="secno">2.8. </span><span class="content">Canonical order</span><a class="self-link" href="#canonical-order"></a></h3>
    <p>TBD</p>
-   <h3 class="heading settled" data-level="3.9" id="animation-type"><span class="secno">3.9. </span><span class="content">Animation type</span><a class="self-link" href="#animation-type"></a></h3>
+   <h3 class="heading settled" data-level="2.9" id="animation-type"><span class="secno">2.9. </span><span class="content">Animation type</span><a class="self-link" href="#animation-type"></a></h3>
    <p class="issue" id="issue-a26e0fd5"><a class="self-link" href="#issue-a26e0fd5"></a> "Animatable" vs "Animation type"? See https://github.com/w3c/csswg-drafts/issues/72</p>
   </main>
   <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -501,8 +431,7 @@ property does not accept percentages in its values.</p>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#propdef-property-name">property-name</a><span>, in §3</span>
-   <li><a href="#this">this</a><span>, in §2</span>
+   <li><a href="#propdef-property-name">property-name</a><span>, in §2</span>
   </ul>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
@@ -553,8 +482,6 @@ property does not accept percentages in its values.</p>
   </div>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue"> This is an issue.<a href="#issue-05237a4c"> ↵ </a></div>
-   <div class="issue"> Maybe I should remove this chapter, since there’s already a "Document conventions" section below...<a href="#issue-9479202b"> ↵ </a></div>
    <div class="issue"> TODO: link to css-syntax-3?<a href="#issue-d90332ab"> ↵ </a></div>
    <div class="issue"> TODO: link to css-cascade?<a href="#issue-5c508cc9"> ↵ </a></div>
    <div class="issue"> TODO: link to css-cascade?<a href="#issue-5c508cc90"> ↵ </a></div>
@@ -564,7 +491,7 @@ property does not accept percentages in its values.</p>
   <aside class="dfn-panel" data-for="propdef-property-name">
    <b><a href="#propdef-property-name">#propdef-property-name</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-propdef-property-name-1">3.1. Value</a>
+    <li><a href="#ref-for-propdef-property-name-1">2.1. Value</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */

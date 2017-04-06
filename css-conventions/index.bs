@@ -18,29 +18,7 @@ Introduction {#intro}
 
 TBD
 
-Typographic conventions {#typographic-conventions}
-==================================================
-
-The definition of a term is marked up like <dfn noexport>this</dfn>.
-
-Note: This is a note.
-
-<div class="example">
-		This is an example.
-</div>
-
-Issue: This is an issue.
-
-<pre class='railroad'>
-T: /*
-ZeroOrMore:
-	N: This is a railroad program
-T: */
-</pre>
-
-Issue: Maybe I should remove this chapter, since there's already a "Document conventions" section below...
-
-CSS property definition conventions {#property-definition-conventions}
+Property definition conventions {#property-definition-conventions}
 ======================================================================
 
 Each CSS property definition begins with a summary of key information that resembles the following:
