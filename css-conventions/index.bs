@@ -23,7 +23,7 @@ from [[!CSS21]].-->
 TBD
 
 Property definition conventions {#property-definition-conventions}
-======================================================================
+==================================================================
 
 Each CSS property definition begins with a summary of key information that resembles the following:
 
@@ -95,3 +95,8 @@ Animation type {#animation-type}
 --------------------------------
 
 Issue: "Animatable" vs "Animation type"? See https://github.com/w3c/csswg-drafts/issues/72
+
+Descriptor definition conventions {#descriptor-definition-conventions}
+======================================================================
+
+Issue: Abstract out the notion of descriptor from font descriptors, viewport descriptors, media features etc.
