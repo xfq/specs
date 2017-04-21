@@ -84,7 +84,7 @@ to which the property applies. Information about media groups is non-normative.
 Computed value {#computed-value}
 --------------------------------
 
-This part describes the computed value for the property. [[!CSS-CASCADE-4]]
+This part describes the <a>computed value</a> for the property. [[!CSS-CASCADE-4]]
 
 Canonical order {#canonical-order}
 ----------------------------------
