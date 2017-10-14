@@ -71,9 +71,9 @@ from an ancestor element. [[!CSS-CASCADE-4]]
 Percentages {#percentages}
 --------------------------
 
-This part indicates how percentages should be interpreted, if they occur in
-the value of the property. If "N/A" appears here, it means that the
-property does not accept percentages in its values.
+This part indicates how <a>percentages</a> should be interpreted,
+if they occur in the value of the property.
+If "N/A" appears here, it means that the property does not accept percentages in its values.
 
 Media {#media}
 --------------
